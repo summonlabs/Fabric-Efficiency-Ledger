@@ -1,0 +1,13 @@
+# Fabric Efficiency Ledger - line ending policy.
+# Copyright 2026 Summon Software Labs.
+# Licensed under the Apache License, Version 2.0.
+#
+# Text files are stored with LF in the repository and checked out with LF as
+# well, so a fresh clone is byte identical to the build host on every platform.
+* text=auto eol=lf
+
+*.png binary
+*.jpg binary
+*.ico binary
+*.lib binary
+*.exe binary

@@ -1,0 +1,45 @@
+# Build outputs
+/build/
+/build-*/
+/out/
+/install/
+/install-*/
+cmake-build-*/
+
+# CMake
+CMakeCache.txt
+CMakeFiles/
+CMakeUserPresets.json
+*.cmake.stamp
+
+# Compiler / linker artifacts
+*.obj
+*.o
+*.pdb
+*.ilk
+*.idb
+*.exp
+*.lib
+*.dll
+*.exe
+*.so
+*.dylib
+*.a
+
+# IDE
+.vs/
+.vscode/
+.idea/
+*.user
+
+# Test + benchmark output
+/testing/
+*.log
+*.tmp
+*.bak
+*.crash
+*.dmp
+
+# OS
+Thumbs.db
+Desktop.ini
