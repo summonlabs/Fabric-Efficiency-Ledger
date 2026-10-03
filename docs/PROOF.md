@@ -38,7 +38,7 @@ MSVC flags in both configurations: `/W4 /permissive- /utf-8 /Zc:__cplusplus
 
 `@
 === release ctest ===
-Test project E:/The Journey/Coding/GitHub/production/Fabric-Efficiency-Ledger/build/rel
+Test project Fabric-Efficiency-Ledger/build/rel
     Start 1: unit
 1/8 Test #1: unit .............................   Passed    0.11 sec
     Start 2: integration
