@@ -65,21 +65,21 @@ path attempts them:
 Requirements: CMake 3.25 or newer, a C++20 compiler, and Ninja or another
 generator. MSVC 19.4x is the toolchain used for the reference builds.
 
-`@powershell
+```powershell
 # Release build with the full test suite, tooling, examples and benchmarks
 pwsh -File scripts/build.ps1 -Config Release -Build -Test
 
 # Debug build as well
 pwsh -File scripts/build.ps1 -Config Debug -Build -Test
-`@
+```
 
 Or directly:
 
-`@powershell
+```powershell
 cmake -S . -B build/rel -G Ninja -DCMAKE_BUILD_TYPE=Release
 cmake --build build/rel
 ctest --test-dir build/rel --output-on-failure
-`@
+```
 
 Strict warnings are on by default and are errors (`/W4 /WX` on MSVC,
 `-Wall -Wextra -Wpedantic -Wconversion -Wsign-conversion -Werror` elsewhere).
@@ -91,16 +91,16 @@ Options: `FEL_BUILD_SHARED`, `FEL_BUILD_TESTS`, `FEL_BUILD_TOOLS`,
 
 ## Install and consume
 
-`@powershell
+```powershell
 cmake --install build/rel --prefix C:/fel
-`@
+```
 
 The package exports a single target, `fel::fel`:
 
-`@cmake
+```cmake
 find_package(fel CONFIG REQUIRED)
 target_link_libraries(your_target PRIVATE fel::fel)
-`@
+```
 
 `tests/downstream/` is a separate CMake project that consumes the installed
 package exactly this way and is built and run as part of the release
@@ -108,7 +108,7 @@ validation. See `docs/PROOF.md` for the transcript.
 
 ## Quick start (library)
 
-`@cpp
+```cpp
 #include "fel/ledger.hpp"
 
 fel::LedgerPolicy policy;
@@ -124,7 +124,7 @@ ledger.value()->ingest(batch);
 
 auto closed = ledger.value()->close_period(
     fel::CloseRequest{period.value(), period_end, "scheduled close", "operator", false});
-`@
+```
 
 `examples/basic_ledger.cpp`, `examples/explain_walkthrough.cpp` and
 `examples/correction_lineage.cpp` are complete, buildable programs covering the
@@ -132,7 +132,7 @@ normal path, the explanation path and the correction path.
 
 ## Quick start (command line)
 
-`@powershell
+```powershell
 fel init      --store .\ledger --policy policy.json --topology topology.json `
               --period-start 2024-01-01T00:00:00Z --period-end 2024-01-01T01:00:00Z
 fel ingest    --store .\ledger --evidence evidence.jsonl
@@ -142,7 +142,7 @@ fel reconcile --store .\ledger --period <id>
 fel explain   --store .\ledger --period <id> --identity <accounting-identity>
 fel export    --store .\ledger --period <id> --format csv --out rows.csv
 fel verify    --store .\ledger
-`@
+```
 
 Exit codes are `0` success, `1` runtime failure, `2` usage error.
 `reconcile` and `explain` return `1` when a conservation domain is not
