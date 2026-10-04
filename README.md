@@ -10,7 +10,7 @@ It ingests typed telemetry observations, classifies them, fuses them into
 immutable accounting cells, checks conservation against independently reported
 totals, closes accounting periods, and explains every number it publishes.
 
-Summon Software Labs Fabric OS runtime. Apache License 2.0. No telemetry
+Apache License 2.0. No telemetry
 transmission.
 
 ---
